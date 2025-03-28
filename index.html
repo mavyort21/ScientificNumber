@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scientific Number Checker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        header {
+            background-color: #4267b2;
+            padding: 1rem;
+            width: 100%;
+            text-align: center;
+            color: white;
+            border-radius: 0 0 15px 15px;
+        }
+
+        nav {
+            margin: 1rem;
+        }
+
+        nav button {
+            margin: 0.2rem;
+            padding: 0.5rem 1rem;
+            background-color: #6574cd;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input {
+            padding: 0.5rem;
+            margin: 0.5rem;
+            border: 2px solid #6574cd;
+            border-radius: 5px;
+            width: 300px;
+        }
+
+        button#check {
+            padding: 0.5rem 1rem;
+            background-color: #38c172;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        p {
+            margin: 1rem;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Scientific Number Checker</h1>
+        <nav>
+            <button onclick="handleMenu('file')">File</button>
+            <button onclick="handleMenu('edit')">Edit</button>
+            <button onclick="handleMenu('run')">Run</button>
+            <button onclick="handleMenu('about')">About Us</button>
+        </nav>
+    </header>
+    <input type="text" id="numberInput" placeholder="Enter a number...">
+    <button id="check" onclick="checkScientificNumber()">Check</button>
+    <p id="result"></p>
+
+    <script>
+        function isScientificNumber(value) {
+            const regex = /^[+-]?[0-9]+(\.[0-9]+)?[eE][+-]?[0-9]+$/;
+            return regex.test(value);
+        }
+
+        function checkScientificNumber() {
+            const input = document.getElementById('numberInput').value;
+            const result = document.getElementById('result');
+
+            if (isScientificNumber(input)) {
+                result.textContent = 'Valid Scientific Number';
+                result.style.color = 'green';
+            } else {
+                result.textContent = 'Not a Scientific Number';
+                result.style.color = 'red';
+            }
+        }
+
+        function handleMenu(option) {
+            switch(option) {
+                case 'file':
+                    alert('File: Save, Save As');
+                    break;
+                case 'edit':
+                    alert('Edit: Copy, Paste');
+                    break;
+                case 'run':
+                    checkScientificNumber();
+                    break;
+                case 'about':
+                    alert('About Us: Maverick Yort Mamanua (231011060061)');
+                    break;
+            }
+        }
+    </script>
+</body>
+</html>
+<head>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    ...
+    <script src="script.js"></script>
+</body>
